@@ -24,7 +24,7 @@ billy = Artist.create!(
 
 amine = Artist.create!(
   name: "Aminé" ,
-  genre: "Alternative Hip Hop"
+  genre: "Alternative Hip Hop",
   bio: "Adam Aminé Daniel, professionally known as Aminé, is an American rapper.
   He is best known for his commercial debut single, 'Caroline', which peaked at number 11 on the US Billboard Hot 100 chart."
 )
@@ -32,15 +32,15 @@ amine = Artist.create!(
 
 #songs
 
-amour = Song.create!( title: "Pensée sur l'amour", year_of_release:2016, artist_id: adrian )
-somewhere_inside = Song.create!( title: "Somewhere Inside", year_of_release:2016, artist_id: adrian )
+amour = Song.create!( title: "Pensée sur l'amour", year_of_release:2016, artist: adrian )
+somewhere_inside = Song.create!( title: "Somewhere Inside", year_of_release:2016, artist: adrian )
 
-bungalow = Song.create!( title: "Bungalow", year_of_release:2017, artist_id: bilderbuch )
-baba = Song.create!( title: "Baba", year_of_release:2017, artist_id: bilderbuch )
+bungalow = Song.create!( title: "Bungalow", year_of_release:2017, artist: bilderbuch )
+baba = Song.create!( title: "Baba", year_of_release:2017, artist: bilderbuch )
 
-piano_man = Song.create!( title: "Piano Man", year_of_release:1973, artist_id: billy )
-uptown_girl = Song.create!( title: "Uptown Girl", year_of_release:1983, artist_id: billy )
-vienna = Song.create!( title: "Vienna", year_of_release:1977, artist_id: billy )
+piano_man = Song.create!( title: "Piano Man", year_of_release:1973, artist: billy )
+uptown_girl = Song.create!( title: "Uptown Girl", year_of_release:1983, artist: billy )
+vienna = Song.create!( title: "Vienna", year_of_release:1977, artist: billy )
 
-caroline = Song.create!( title: "caroline", year_of_release:2017, artist_id: amine )
-broccoli = Song.create!( title: "Broccoli", year_of_release:2015, artist_id: amine )
+caroline = Song.create!( title: "caroline", year_of_release:2017, artist: amine )
+broccoli = Song.create!( title: "Broccoli", year_of_release:2015, artist: amine )
