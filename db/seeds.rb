@@ -1,3 +1,6 @@
+Artist.destroy_all
+Song.destroy_all
+
 #artists
 adrian = Artist.create!(
   name: "Adrian Ström" ,
