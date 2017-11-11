@@ -42,6 +42,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
+  gem 'factory_girl_rails', '4.7.0'
+  gem 'faker', '1.6.6'
+
 end
 
 group :test do
