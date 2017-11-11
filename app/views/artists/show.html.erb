@@ -12,7 +12,8 @@
 <h4>His Songs</h4>
 <% @artist.songs.each do |song| %>
   <p><%= song.title %><p>
-    <p><%= song.year_of_release %><p>
+  <p><%= song.year_of_release %><p>
+  <%= link_to 'Delete', [song.artist, song], method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 
