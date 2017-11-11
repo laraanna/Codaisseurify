@@ -47,3 +47,9 @@ vienna = Song.create!( title: "Vienna", year_of_release:1977, artist: billy )
 
 caroline = Song.create!( title: "caroline", year_of_release:2017, artist: amine )
 broccoli = Song.create!( title: "Broccoli", year_of_release:2015, artist: amine )
+
+#Photos
+photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/adrian_rndige.jpg", artist: adrian)
+photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/bilderbuch_wrmrj3.jpg", artist: bilderbuch)
+photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/billy_tigrfd.jpg", artist: billy)
+photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/amine_ehxgxa.jpg", artist: amine)
