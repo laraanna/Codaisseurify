@@ -8,4 +8,6 @@ class ArtistsController < ApplicationController
    @photos = @artist.photos
    @songs = @artist.songs
   end
+
+
 end

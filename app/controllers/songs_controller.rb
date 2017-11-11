@@ -1,26 +1,24 @@
 class SongsController < ApplicationController
-
-  def index
-    @songs = artist.songs
-  end
+  before_action :get_artist
 
   def new
-    @song = artist.songs.build
+   @song = Artist.new
   end
 
   def create
-   @song = artist.songss.build(song_params)
-   if @song.save
-     redirect_to @song, notice: "Song created"
-   else
-     render :new
-   end
+    @song = @artist.songs.create(song_params)
+    redirect_to artist_path(@artist)
   end
 
   private
 
-  def song_params
-    params.require(:song).permit( :title, :year_of_release )
+  def get_artist
+    @artist = Artist.find(params[:artist_id])
   end
+
+  def song_params
+      params.require(:song).permit(:title, :year_of_release, :artist_id)
+  end
+
 
 end
