@@ -28,4 +28,13 @@ RSpec.describe Song, type: :model do
       expect(song).not_to be_valid
     end
   end
+
+  describe "assosication with sartists" do
+    let(:artist) {create :artist}
+
+    it "belongs to an artist" do
+      song = artist.songs.build(title: "Mann im Mond")
+      expect(song.artist).to eq(artist)
+    end
+  end
 end

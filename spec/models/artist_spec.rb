@@ -29,5 +29,21 @@ RSpec.describe Artist, type: :model do
       end
     end
 
+    describe "association with song" do
+      let!(:song) {create :song,artist: artist }
+      let(:artist) {create :artist}
+      it "has many songs" do
+        song_1 = artist.songs.new(title: "This is a song")
+        song_2 = artist.songs.new(title: "This is another song")
+
+        expect(artist.songs).to include(song_1)
+        expect(artist.songs).to include(song_2)
+      end
+
+      it "deletes associated songs" do
+        expect {artist.destroy}.to change(Song, :count).by(-1)
+      end
+    end
+
 
 end
