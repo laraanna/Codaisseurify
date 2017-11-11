@@ -1,0 +1,13 @@
+<%= form_for [@artist, @artist.songs.build] do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :year_of_release %><br>
+    <%= form.number_field :year_of_release %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

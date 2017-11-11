@@ -1,0 +1,24 @@
+<h1> <%= @artist.name %> </h1>
+<%= link_to 'Delete this Artist', artist_path(@artist.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<p>Genre: <%= @artist.genre %></p>
+<p>Bio: <%= @artist.bio %></p>
+
+<h4>Favourite Pics</h4>
+<% @artist.photos.each do |photo| %>
+  <%= image_tag photo.image %>
+<% end %>
+<hr>
+
+<h4>His Songs</h4>
+<% @artist.songs.each do |song| %>
+  <p><%= song.title %><p>
+  <p><%= song.year_of_release %><p>
+  <%= link_to 'Delete', [song.artist, song], method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+
+<div class="panel-body">
+  <h2>Add a song:</h2>
+    <%= render 'songs/new_song_form' %>
+  </div>
