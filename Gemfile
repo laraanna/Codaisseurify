@@ -28,8 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'carrierwave', '0.11.2'
 
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use jQuery for easier javascript
 gem 'jquery-rails', '~> 4.3.1'
 
@@ -59,3 +60,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'cloudinary', '1.2.3'
