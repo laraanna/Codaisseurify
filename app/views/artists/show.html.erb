@@ -1,0 +1,11 @@
+<h1> <%= @artist.name %> </h1>
+
+<p>Genre: <%= @artist.genre %></p>
+<p>Bio: <%= @artist.bio %></p>
+
+<h4>Favourite Pics</h4>
+<% @artist.photos.each do |photo| %>
+  <%= image_tag photo.image %>
+<% end %>
+
+<hr>
