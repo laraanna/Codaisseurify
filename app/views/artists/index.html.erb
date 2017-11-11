@@ -1,6 +1,18 @@
 <h1>Artists</h1>
 
-<% @artists.each do |artist| %>
-  <p><%= link_to artist.name, artist_path(artist.id) %></p>
-  <%= image_tag artist.remote_image_url %>
-<% end %>
+<div class="center">
+  <div class="row">
+     <% @artists.each do |artist| %>
+        <div class="col-md-3 col-xs-6">
+           <div class="thumbnail" >
+             <%= image_tag artist.remote_image_url %>
+            <div class="caption">
+               <h3> <%= link_to artist.name, artist_path(artist.id) %></h3>
+               <p> <%= artist.bio %> </p>
+               <button> <%= link_to 'More', artist_path(artist.id) %></button>
+            </div>
+          </div>
+       </div>
+     <% end %>
+   </div>
+</div>
