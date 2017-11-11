@@ -6,7 +6,8 @@ adrian = Artist.create!(
   name: "Adrian Ström" ,
   genre: "Dance/Electro" ,
   bio: "Creates music and captures moments of life with his camera.
-  Both things come in handy when mixing them into his videos clips."
+  Both things come in handy when mixing them into his videos clips.",
+  remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/adrian_rndige.jpg"
 )
 
 bilderbuch = Artist.create!(
@@ -14,7 +15,8 @@ bilderbuch = Artist.create!(
   genre: "Rock" ,
   bio: "Bilderbuch is an Austrian rock band, formed in Kremsmünster, Austria in 2005.
   Since 2008, the band has been based in Vienna.
-  The current band members are Maurice Ernst, Peter Horazdovsky, Michael Krammer and Phillipp Scheibl"
+  The current band members are Maurice Ernst, Peter Horazdovsky, Michael Krammer and Phillipp Scheibl",
+  remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/bilderbuch_wrmrj3.jpg"
 )
 
 billy = Artist.create!(
@@ -22,15 +24,18 @@ billy = Artist.create!(
   genre: "Rock music, Rock and roll, Soft rock, Pop music" ,
   bio: "William Martin Joel is an American singer-songwriter and pianist.
   He was born in the Bronx, New York, and raised on Long Island, New York,
-  places which have a heavy influence on his songs."
+  places which have a heavy influence on his songs.",
+  remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/billy_tigrfd.jpg"
 )
 
 amine = Artist.create!(
   name: "Aminé" ,
   genre: "Alternative Hip Hop",
   bio: "Adam Aminé Daniel, professionally known as Aminé, is an American rapper.
-  He is best known for his commercial debut single, 'Caroline', which peaked at number 11 on the US Billboard Hot 100 chart."
+  He is best known for his commercial debut single, 'Caroline', which peaked at number 11 on the US Billboard Hot 100 chart.",
+  remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/amine_ehxgxa.jpg"
 )
+
 
 
 #songs
@@ -47,9 +52,3 @@ vienna = Song.create!( title: "Vienna", year_of_release:1977, artist: billy )
 
 caroline = Song.create!( title: "caroline", year_of_release:2017, artist: amine )
 broccoli = Song.create!( title: "Broccoli", year_of_release:2015, artist: amine )
-
-#Photos
-photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/adrian_rndige.jpg", artist: adrian)
-photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/bilderbuch_wrmrj3.jpg", artist: bilderbuch)
-photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/billy_tigrfd.jpg", artist: billy)
-photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/dtvsqvonc/image/upload/v1510389935/amine_ehxgxa.jpg", artist: amine)
