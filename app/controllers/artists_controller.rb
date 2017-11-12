@@ -2,7 +2,6 @@ class ArtistsController < ApplicationController
 
   def index
     @artists = Artist.order_name_asc.all
-
   end
 
   def show
@@ -15,6 +14,7 @@ class ArtistsController < ApplicationController
     @artist.destroy
     redirect_to artists_path
   end
+
 
 
 
