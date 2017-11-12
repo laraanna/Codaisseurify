@@ -7,4 +7,6 @@ class Artist < ApplicationRecord
 
   scope :order_name_asc, -> { order(:name) }
   scope :order_name_desc, -> { order(name: :desc) }
+
+
 end
