@@ -1,13 +1,21 @@
 class SongsController < ApplicationController
   before_action :get_artist
 
+  def index
+    @songs = Song.all
+  end
+
   def new
-   @song = Artist.new
+   @song = Song.new
   end
 
   def create
     @song = @artist.songs.create(song_params)
-    redirect_to artist_path(@artist)
+    if @song.save
+      redirect_to artist_path(@artist), notice: "Song successfully added!"
+    else
+      render :new
+    end
   end
 
 
