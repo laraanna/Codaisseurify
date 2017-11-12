@@ -9,7 +9,7 @@
   <div class="center">
     <div class="row">
        <% @artists.each do |artist| %>
-          <div class="col-md-4 col-xs-6">
+          <div class="col-md-3 col-xs-6">
              <div class="thumbnail" >
                <%= image_tag artist.remote_image_url %>
               <div class="caption">
@@ -22,5 +22,7 @@
        <% end %>
      </div>
   </div>
+
+
 
 </div>

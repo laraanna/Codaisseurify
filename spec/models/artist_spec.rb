@@ -45,5 +45,19 @@ RSpec.describe Artist, type: :model do
       end
     end
 
+    describe "Order Artists in ascending and descending order" do
+      let!(:artist_one) {create :artist, name: "D"}
+      let!(:artist_two) {create :artist, name: "A"}
+      let!(:artist_three) {create :artist, name: "C"}
+
+      it ".order_name_asc returns ascended sorted array" do
+        expect(Artist.order_name_asc).to eq([artist_two, artist_three, artist_one])
+      end
+
+      it ".order_name_desc returns descended sorted array" do
+        expect(Artist.order_name_desc).to eq([artist_one, artist_three, artist_two])
+      end
+    end
+
 
 end
