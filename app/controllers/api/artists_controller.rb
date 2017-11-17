@@ -5,5 +5,10 @@ class Api::ArtistsController < ApplicationController
     render status: 200, json: artists
   end
 
+  def show
+   artist = Artist.find(params[:id])
+   render status: 200, json:artist
+  end
+
 
 end
