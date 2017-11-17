@@ -35,6 +35,7 @@ gem 'carrierwave', '0.11.2'
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use jQuery for easier javascript
 gem 'jquery-rails', '~> 4.3.1'
+gem 'active_model_serializers', '~> 0.10.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
