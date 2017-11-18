@@ -1,16 +1,16 @@
 class SongsController < ApplicationController
-  before_action :get_artist
+  before_action :get_artist, only: [:show, :edit,:create, :destroy]
 
   def index
     @songs = Song.all
   end
 
   def new
-   @song = Song.new
+   @song = Song.build
   end
 
   def create
-    @song = @artist.songs.create(song_params)
+    @song = @artist.songs.build(song_params)
     if @song.save
       redirect_to artist_path(@artist), notice: "Song successfully added!"
     else
@@ -24,6 +24,9 @@ class SongsController < ApplicationController
     @song.destroy
     redirect_to artist_path(@artist)
   end
+
+
+
 
   private
 
