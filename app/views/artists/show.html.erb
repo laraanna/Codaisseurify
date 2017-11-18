@@ -11,28 +11,17 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">All Songs</div>
-      <ul class="list-group">
-      <% @artist.songs.each do |song| %>
-        <li class="list-group-item ">
-          <p><%= song.title %><p>
-          <p><%= song.year_of_release %><p>
-          <button type="button" class="btn btn-default btn-xs">
-            <%= link_to 'Delete', [song.artist, song], method: :delete, data: { confirm: 'Are you sure?' } %>
-          </button>
-        </li>
-      <% end %>
-      </ul>
 
   </div>
   <table class="table table-striped" id="songList">
-  <%= render @songs %>
+    <%= render @songs %>
   </table>
 
   <div class="panel panel-default">
     <div class="panel-heading">Add Song</div>
       <ul class="list-group">
         <li class="list-group-item ">
-          <%= render 'songs/new_song_form', artist: @artist, song: @song %>
+          <%= render 'songs/new_song_form', song: @song, artist: @artist %>
         </li>
       </ul>
   </div>

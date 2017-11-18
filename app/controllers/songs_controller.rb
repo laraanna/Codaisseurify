@@ -1,9 +1,7 @@
 class SongsController < ApplicationController
   before_action :get_artist, only: [:show, :edit,:create, :destroy]
 
-  def index
-    @songs = Song.all
-  end
+
 
   def new
    @song = Song.build
@@ -11,13 +9,14 @@ class SongsController < ApplicationController
 
   def create
     @song = @artist.songs.build(song_params)
+
     respond_to do |format|
       if @song.save
         format.html {redirect_to artist_path(@artist), notice: 'Song successfully added!' }
-        format.json { render status: 200, json: @song}
+        format.json { render json: {song: @song, status: :created}}
       else
         format.html { redirect_to artists_path(@artist) }
-        format.json { render status: 422, json: { errors: @song.errors }.to_json}
+        format.json { render json:  @song.errors, status: :unprocessable_entity}
       end
     end
   end

@@ -1,4 +1,4 @@
-<%= form_for [artist, artist.songs.build] do |f| %>
+<%= form_for([artist, song]) do |f| %>
   <div class="form-group"  id="formgroup-title">
 
       <div class="form-group">
@@ -11,7 +11,7 @@
         <%= f.number_field :year_of_release, placeholder: " Please insert Year of Release" %>
       </div>
 
-      <div>
+      <div id="add">
         <%= f.submit %>
       </div>
   </div>

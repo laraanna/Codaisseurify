@@ -1,7 +1,7 @@
 class Api::SongsController < ApplicationController
 
   def index
-    songs = Song.all
+    songs = get_artist.songs
     render status: 200, json: songs
   end
 
