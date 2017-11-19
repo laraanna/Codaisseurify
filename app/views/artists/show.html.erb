@@ -11,11 +11,15 @@
 
   <div class="panel panel-default">
     <div class="panel-heading">All Songs</div>
-
   </div>
+
   <table class="table table-striped" id="songList">
     <%= render @songs %>
   </table>
+
+  <div>
+    <a href="#" id="delete_all">Delete Songs</a>
+  </div>
 
   <div class="panel panel-default">
     <div class="panel-heading">Add Song</div>
@@ -26,12 +30,9 @@
       </ul>
   </div>
 
-
   <div class="row">
     <div class="thumbnail" >
       <%= image_tag @artist.remote_image_url%>
     </div>
   </div>
-
-
 </div>
