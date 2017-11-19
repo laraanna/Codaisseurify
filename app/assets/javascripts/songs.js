@@ -1,6 +1,7 @@
 var pathname = window.location.pathname; // Returns path only
 var url      = window.location.href;     // Returns full URL
 
+
 function createSong(title, year_of_release) {
   var newSong = { title: title, year_of_release: year_of_release };
 
@@ -18,25 +19,25 @@ function createSong(title, year_of_release) {
 
     var songId = data.id;
 
-    var label_title = $('<label class="title"></label>')
+    var label_title = $('<label></label>')
       .attr('for', songId)
       .html(title);
 
-    var label_year = $('<label class="year"></label>')
+    var label_year = $('<label></label>')
       .attr('for', songId)
       .html(year_of_release);
 
-    var delete_button = $('<button type="button"></button>')
-      .attr('id', songId)
+    var label_button = $('<label></label>')
+      .attr('for', songId)
       .html("Delete");
 
-    var tableRow = $('<tr class="song"></td>')
-      .attr('data-id', songId)
+    var tableRow = $('<tr class="song"></tr>')
+      .attr('data-d', songId)
       .append($('<td>').append(label_title))
       .append($('<td>').append(label_year))
-      .append($('<td>').append(delete_button));
+      .append($('<td>').append(label_button));
 
-    $("#songList").append( tableRow );
+    $("#songList").append(tableRow);
   })
 
   .fail(function(error) {
@@ -55,6 +56,36 @@ function submitSong(event) {
 
 }
 
+
+
+function findSong(event) {
+  event.preventDefault();
+
+  var button = this;
+  var tableRow = $(this).parent().parent();
+  var songId = tableRow.data('id');
+  console.log(songId);
+  deleteSong(songId);
+};
+
+function deleteSong(songId) {
+  $.ajax({
+    type: "DELETE",
+    url: "" + pathname + "/songs/" + songId + ".json",
+    contentType: "application/json",
+    dataType: "json"
+  })
+  .done(function(data) {
+    $('tr[data-id="'+songId+'"]').remove();
+  });
+}
+
+
+
+
+
+
 $(document).ready(function() {
   $("form").bind('submit', submitSong);
+  $(".delete_me").bind('click', findSong);
 });
