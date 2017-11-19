@@ -1,7 +1,6 @@
 var pathname = window.location.pathname; // Returns path only
 var url      = window.location.href;     // Returns full URL
 
-
 function createSong(title, year_of_release) {
   var newSong = { title: title, year_of_release: year_of_release };
 
@@ -16,7 +15,6 @@ function createSong(title, year_of_release) {
   })
   .done(function(data) {
     console.log(data);
-
     var songId = data.id;
 
     var label_title = $('<label></label>')
@@ -43,28 +41,30 @@ function createSong(title, year_of_release) {
   .fail(function(error) {
     console.log(error)
     error_message = error.responseJSON.title[0];
-    showError(error_message);
   });
 }
 
 
 function submitSong(event) {
   event.preventDefault();
-  createSong($("#song_title").val(), $("#song_year_of_release").val() );
+
+  var title = $("#song_title").val();
+  var year_of_release = $("#song_year_of_release").val();
+  createSong(title, year_of_release);
+
   $("#song_title").val(null);
   $("#song_year_of_release").val(null);
 
 }
 
 
-
-function findSong(event) {
+function findSongDelete(event) {
   event.preventDefault();
 
   var button = this;
   var tableRow = $(this).parent().parent();
   var songId = tableRow.data('id');
-  console.log(songId);
+
   deleteSong(songId);
 };
 
@@ -80,12 +80,20 @@ function deleteSong(songId) {
   });
 }
 
+function deleteAllSongs(event) {
+  event.preventDefault();
 
-
-
+  $.each($(".song"),function(index,tableRow) {
+    songId = $(tableRow).data('id');
+    deleteSong(songId);
+  });
+  // $("#songList").html("");
+}
 
 
 $(document).ready(function() {
   $("form").bind('submit', submitSong);
-  $(".delete_me").bind('click', findSong);
+  $(".delete_me").bind('click', findSongDelete);
+  $("#delete_all").bind('click', deleteAllSongs);
+
 });
