@@ -1,13 +1,16 @@
-function createSong(title, year_of_release){
-  var newSong = {title: title, year_of_release: year_of_release};
+var pathname = window.location.pathname; // Returns path only
+var url      = window.location.href;     // Returns full URL
+
+function createSong(title, year_of_release) {
+  var newSong = { title: title, year_of_release: year_of_release };
 
   $.ajax({
     type: "POST",
-    url: "/api/artists/${<%= @artist.id %>/songs.json",
+    url: "" + pathname + "/songs.json",
     data: JSON.stringify({
-      song: newSong
+        song: newSong
     }),
-    contentType: "/application/json"
+    contentType: "application/json",
     dataType: "json"
   })
   .done(function(data) {
@@ -15,16 +18,25 @@ function createSong(title, year_of_release){
 
     var songId = data.id;
 
-    var label = $('<label></label>')
+    var label_title = $('<label class="title"></label>')
       .attr('for', songId)
       .html(title);
 
-    var tableRow = $('<tr class="todo"></td>')
+    var label_year = $('<label class="year"></label>')
+      .attr('for', songId)
+      .html(year_of_release);
+
+    var delete_button = $('<button type="button"></button>')
+      .attr('id', songId)
+      .html("Delete");
+
+    var tableRow = $('<tr class="song"></td>')
       .attr('data-id', songId)
-      .append($('<td>').append(label));
+      .append($('<td>').append(label_title))
+      .append($('<td>').append(label_year))
+      .append($('<td>').append(delete_button));
 
-    $("#songList").append(tableRow);
-
+    $("#songList").append( tableRow );
   })
 
   .fail(function(error) {
@@ -32,18 +44,17 @@ function createSong(title, year_of_release){
     error_message = error.responseJSON.title[0];
     showError(error_message);
   });
-
 }
+
 
 function submitSong(event) {
   event.preventDefault();
-  resetErrors();
-  createSong($("#song_title").val());
+  createSong($("#song_title").val(), $("#song_year_of_release").val() );
   $("#song_title").val(null);
+  $("#song_year_of_release").val(null);
 
 }
 
 $(document).ready(function() {
-  $("#addSong").bind('click', submitSong);
-
+  $("form").bind('submit', submitSong);
 });
