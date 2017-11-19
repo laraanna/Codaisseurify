@@ -2,12 +2,18 @@ class ArtistsController < ApplicationController
   before_action :get_artist, only: [:show, :destroy]
 
   def index
-    @artists = Artist.all.order_name_asc
+    @artists = Artist.all
   end
 
   def show
    @songs = @artist.songs
    @song = Song.new
+
+   respond_to do |format|
+     format.html { render :show }
+     format.json { render json: @artist}
+   end
+
   end
 
   def destroy
