@@ -1,29 +1,49 @@
 class SongsController < ApplicationController
-  before_action :get_artist
+  before_action :get_artist, only: [:show,:edit,:create, :destroy]
 
   def index
     @songs = Song.all
   end
 
+  def show
+    @song = Song.find(params[:id])
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @song}
+    end
+  end
+
+
   def new
-   @song = Song.new
+   @song = get_artist.songs.build
   end
 
   def create
-    @song = @artist.songs.create(song_params)
-    if @song.save
-      redirect_to artist_path(@artist), notice: "Song successfully added!"
-    else
-      render :new
+    @song = @artist.songs.build(song_params)
+
+    respond_to do |format|
+      if @song.save
+        format.html {redirect_to artist_path(@artist), notice: 'Song has been added successfully!' }
+        format.json { render json: @song, status: :created }
+      else
+        format.html { redirect_to artist_path(@artist) }
+        format.json { render json:  @song.errors, status: :unprocessable_entity}
+      end
     end
   end
+
 
 
   def destroy
     @song = @artist.songs.find(params[:id])
     @song.destroy
-    redirect_to artist_path(@artist)
+    respond_to do |format|
+      format.html { redirect_to artist_path(@artist), notice: 'Song has been destroyed successfully.'}
+      format.json { head :no_content }
+    end
   end
+
 
   private
 

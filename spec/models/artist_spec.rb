@@ -14,6 +14,7 @@ RSpec.describe Artist, type: :model do
         expect(artist.errors).to have_key(:bio)
       end
 
+
       it "it is invalid without a genre" do
         artist = Artist.new(genre:"")
         artist.valid?

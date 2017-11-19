@@ -1,13 +1,25 @@
-<%= form_for [@artist, @artist.songs.build] do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :year_of_release %><br>
-    <%= f.number_field :year_of_release %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+<%= form_for([artist, song]) do |f| %>
+  <div class="form-group"  id="formgroup-title">
+    <p><%= flash[:notice] %> </p>
+
+      <% if song.errors.any? %>
+        <% song.errors.full_messages.each do |message| %>
+          <span class="help-block"><%= message %></span>
+        <% end %>
+      <% end %>
+
+      <div class="form-group">
+        <label>Title</label>
+      <%= f.text_field :title, placeholder: " Please insert Title" %>
+      </div>
+
+      <div class="form-group">
+        <label>Year of Release</label>
+        <%= f.number_field :year_of_release, placeholder: " Please insert Year of Release" %>
+      </div>
+
+      <div id="add">
+        <%= f.submit %>
+      </div>
+  </div>
 <% end %>
