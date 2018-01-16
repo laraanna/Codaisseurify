@@ -32,6 +32,10 @@ rails server
 
 ## Preview
 
+Artist Overview Page
+
+![screen shot 2018-01-16 at 12 09 37 pm](https://user-images.githubusercontent.com/22427224/34986412-d34543b2-fab7-11e7-8ba7-e62ad13830e1.png)
+
 
 
 
