@@ -15,3 +15,101 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  background-image: url("https://www.almanac.com/sites/default/files/image_nodes/fireflies-lightning-bugs.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.navbar-default {
+  background-color: black;
+  border: none;
+}
+
+.jumbotron {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #d2d2d2;
+}
+
+.thumbnail {
+  background-color: rgba(13, 61, 96, 0.8);
+  border: none;
+}
+.caption h3,
+p {
+  color: #d2d2d2;
+}
+
+.btn-default {
+  background-color: rgba(13, 61, 96, 0.9);
+  border: none;
+}
+
+.btn-default:hover {
+  background-color: #0a2940;
+  border: none;
+}
+
+.btn-default a,
+.btn-default a:hover {
+  color: #d2d2d2;
+  text-decoration: none;
+}
+
+a {
+  color: white;
+}
+.page-header {
+  color: #d2d2d2;
+}
+.panel {
+  background-color: transparent;
+  border: none;
+}
+
+.panel-default > .panel-heading {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+}
+
+.table > tbody > tr > td {
+  border: none;
+}
+
+.list-group-item {
+  background-color: rgba(13, 61, 96, 0.7);
+}
+
+.song td {
+  background-color: transparent;
+}
+
+.wrapper {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2%;
+}
+
+label {
+  color: white;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+input:nth-last-of-type {
+  border-bottom: none;
+}
+
+.artist {
+  background-color: transparent;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: transparent;
+}
